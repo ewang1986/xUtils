@@ -24,17 +24,13 @@ public class ImageActivity extends Activity {
 
     @ViewInject(R.id.big_img)
     private ImageView bigImage;
-
     private BitmapUtils bitmapUtils;
-
     private BitmapDisplayConfig bigPicDisplayConfig;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.image);
-
         ViewUtils.inject(this);
-
         String imgUrl = getIntent().getStringExtra("url");
 
         bitmapUtils = BitmapFragment.bitmapUtils;
