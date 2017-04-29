@@ -50,9 +50,7 @@ public class MyActivity extends FragmentActivity {
     private void setupTabView() {
         mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
         mTabHost.getTabWidget().setDividerDrawable(null);
-
         int count = fragmentArray.length;
-
         for (int i = 0; i < count; i++) {
             TabHost.TabSpec tabSpec = mTabHost.newTabSpec(titleArray[i]).setIndicator(getTabItemView(i));
             mTabHost.addTab(tabSpec, fragmentArray[i], null);
@@ -61,16 +59,18 @@ public class MyActivity extends FragmentActivity {
 
     }
 
+    /**
+     * 获取指定的指示器
+     * @param index
+     * @return
+     */
     private View getTabItemView(int index) {
         LayoutInflater layoutInflater = LayoutInflater.from(this);
         View view = layoutInflater.inflate(R.layout.tab_bottom_nav, null);
-
         ImageView imageView = (ImageView) view.findViewById(R.id.iv_icon);
         imageView.setImageResource(iconArray[index]);
-
         TextView textView = (TextView) view.findViewById(R.id.tv_icon);
         textView.setText(titleArray[index]);
-
         return view;
     }
 }
